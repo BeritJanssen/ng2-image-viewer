@@ -176,8 +176,11 @@ export class ImageViewerComponent implements OnChanges, OnInit, AfterViewInit {
             this.carregarViewerPDF();
         } else if (this.isURlImagem()) {
 
-            imgObj = this.getImagemAtual();
-            this.stringDownloadImagem = this.getImagemAtual();
+            this.getImagemAtual().then( image => {
+                imgObj = image;
+                this.stringDownloadImagem = image;
+            })
+
         } else {
             imgObj = this.BASE_64_PNG + this.getImagemAtual();
             this.stringDownloadImagem = this.BASE_64_IMAGE + this.getImagemAtual();
@@ -407,8 +410,8 @@ export class ImageViewerComponent implements OnChanges, OnInit, AfterViewInit {
         return window.URL.createObjectURL(newBlob);
     }
 
-    private getImagemAtual() {
-        return this.images[this.indexImagemAtual - 1];
+    private async getImagemAtual() {
+        return await this.images[this.indexImagemAtual - 1];
     }
 
     base64ToArrayBuffer(data) {
