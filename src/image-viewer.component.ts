@@ -224,11 +224,13 @@ export class ImageViewerComponent implements OnChanges, OnInit, AfterViewInit {
     }
 
     isPDF() {
-        return this.getImagemAtual().startsWith('JVBE') || this.getImagemAtual().startsWith('0M8R');
+        return this.getImagemAtual().then(result => {
+            return result.startsWith('JVBE') || result.startsWith('0M8R');
+        })
     }
 
     isURlImagem() {
-        return this.getImagemAtual().match(new RegExp(/(https|http|www\.)/g));
+        return this.getImagemAtual().then( result => result.match(new RegExp(/(https|http|www\.)/g)));
     }
 
     prepararTrocaImagem() {

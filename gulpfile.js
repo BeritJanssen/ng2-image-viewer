@@ -83,7 +83,9 @@ gulp.task('rollup:fesm', function () {
 
       // Format of generated bundle
       // See "format" in https://rollupjs.org/#core-functionality
-      format: 'es'
+      output: {
+          format: 'es'
+        }
     }))
     .pipe(gulp.dest(distFolder));
 });
