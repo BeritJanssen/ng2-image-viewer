@@ -19,6 +19,7 @@
     "type": "git",
     "url": "https://github.com/brenoprata10/ng2-image-viewer"
   },
+  "files": ["dist/*"],
   "author": {
     "name": "brenoprata10",
     "email": "brenoprata10@gmail.com"
