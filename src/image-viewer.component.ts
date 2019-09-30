@@ -160,7 +160,7 @@ export class ImageViewerComponent implements OnChanges, OnInit, AfterViewInit {
     inicializarImageViewer() {
         this.indexImagemAtual = 1;
         this.totalImagens = this.images.length;
-        this.wrapper = $(`#${this.idContainer}`);
+        this.wrapper = document.getElementById(this.idContainer);
         this.curSpan = this.wrapper.find('.current');
         this.viewer = ImageViewer(this.wrapper.find('.image-container'));
         this.wrapper.find('.total').html(this.totalImagens);
